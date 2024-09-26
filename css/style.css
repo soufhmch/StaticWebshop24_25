@@ -1,0 +1,176 @@
+/* Reset default browser styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Chakra Petch", sans-serif;
+  line-height: 1.6;
+}
+
+header nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #586a6a;
+  color: #fff;
+  border-radius: 0 0 15px 15px;
+}
+
+nav .logo {
+  margin-right: 4rem; /* Zorgt voor wat ruimte tussen de logo en de links */
+}
+
+nav ul {
+  list-style-type: none;
+  display: flex;
+}
+
+nav li {
+  display: inline;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 2rem;
+}
+
+nav a:hover {
+  color: #e7222e;
+}
+
+.logo {
+  width: 450px;
+  border-radius: 15px;
+}
+
+main {
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.intro {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+  text-align: center;
+  gap: 2rem;
+  align-items: start;
+}
+
+.intro h1 {
+  grid-column: span 3;
+  grid-row: 1/2; /* Span across all columns */
+  font-family: "Chakra Petch", sans-serif;
+  font-weight: 600;
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  height: 55vh;
+  background-size: cover;
+  background-image: url(/assets/bmw\ banner.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  border-radius: 15px;
+  animation: colorChange 5s infinite;
+}
+
+.intro p.right {
+  text-align: right;
+  grid-column: 1/2; /* Left column */
+  font-size: 1.7rem;
+  font-family: "Chakra Petch", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.intro img {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  margin-left: 5rem;
+  grid-column: 2/3; /* Center column */
+}
+
+.intro p.left {
+  text-align: left;
+  grid-column: 3/4; /* Right column */
+  font-size: 1.7rem;
+  font-family: "Chakra Petch", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.highlighted {
+  grid-column: span 3;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.bestSold {
+  flex-basis: 30%;
+  margin: 1rem 0;
+  text-align: center;
+}
+
+.bestSold img {
+  width: 100%;
+  height: auto;
+  max-width: 200px;
+}
+
+footer {
+  grid-column: span 3;
+  text-align: center;
+  background-color: #586a6a;
+  color: white;
+  padding: 1rem;
+  margin-top: 2rem;
+}
+
+@media (max-width: 768px) {
+  main {
+    grid-template-columns: 1fr;
+  }
+
+  .bestSold {
+    flex-basis: 100%;
+  }
+
+  header nav {
+    flex-direction: column;
+  }
+
+  .intro {
+    grid-template-columns: 1fr; /* Stack all content */
+  }
+
+  .intro p.richt,
+  .intro img,
+  .intro p.left {
+    grid-column: span 1;
+    text-align: center; /* Center everything on smaller screens */
+  }
+}
+@keyframes colorChange {
+  0% {
+    color: #4aad52;
+  }
+  25% {
+    color: #c2efeb;
+  }
+  50% {
+    color: #001f54;
+  }
+  75% {
+    color: #586a6a;
+  }
+  100% {
+    color: #4aad52; /* Return to the first color */
+  }
+}
