@@ -8,8 +8,11 @@
 body {
   font-family: "Chakra Petch", sans-serif;
   line-height: 1.6;
+  background-color: #eeeeee;
 }
-
+a {
+  text-decoration: none;
+}
 header nav {
   display: flex;
   justify-content: space-around;
@@ -21,7 +24,7 @@ header nav {
 }
 
 nav .logo {
-  margin-right: 4rem; /* Zorgt voor wat ruimte tussen de logo en de links */
+  margin-right: 4rem;
 }
 
 nav ul {
@@ -37,15 +40,22 @@ nav a {
   color: white;
   text-decoration: none;
   font-size: 2rem;
+  display: inline-block;
+  transition: transform 0.2s ease-in-out;
 }
 
 nav a:hover {
-  color: #e7222e;
+  animation: colorChange 2s infinite;
+  border-bottom: 4px solid;
+  border-top: 4px solid;
+  border-radius: 8px;
+  transform: translateY(-8px);
 }
 
 .logo {
   width: 450px;
   border-radius: 15px;
+  box-shadow: #2f4f4f 0px 4px 10px 4px;
 }
 
 main {
@@ -65,7 +75,6 @@ main {
 .intro h1 {
   grid-column: span 3;
   grid-row: 1/2; /* Span across all columns */
-  font-family: "Chakra Petch", sans-serif;
   font-weight: 600;
   font-size: 3.5rem;
   margin-bottom: 1rem;
@@ -77,13 +86,13 @@ main {
   background-attachment: fixed;
   border-radius: 15px;
   animation: colorChange 5s infinite;
+  box-shadow: #586a6a 0px 4px 7px 4px;
 }
 
 .intro p.right {
   text-align: right;
   grid-column: 1/2; /* Left column */
   font-size: 1.7rem;
-  font-family: "Chakra Petch", sans-serif;
   font-weight: 400;
   font-style: italic;
 }
@@ -92,32 +101,50 @@ main {
   width: 100%;
   max-width: 400px;
   height: auto;
-  margin-left: 5rem;
   grid-column: 2/3; /* Center column */
+  justify-self: center;
+  box-shadow: #586a6a 0px 4px 7px 4px;
 }
 
 .intro p.left {
   text-align: left;
   grid-column: 3/4; /* Right column */
   font-size: 1.7rem;
-  font-family: "Chakra Petch", sans-serif;
   font-weight: 400;
   font-style: italic;
 }
 
 .highlighted {
-  grid-column: span 3;
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 2rem, 1fr, 1fr;
+  grid-template-rows: repeat(3, 1fr);
 }
-
+.highlightedTitle {
+  display: grid;
+  grid-row: 1/2;
+  grid-column: 1/4;
+  text-align: center;
+  font-size: 35px;
+  align-content: space-evenly;
+}
 .bestSold {
   flex-basis: 30%;
-  margin: 1rem 0;
   text-align: center;
+  border: #3fa1ec solid 4px;
+  border-radius: 0 15px 0 15px;
+  box-shadow: #586a6a 0px 4px 7px 4px;
+  margin: 10px;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  transition: transform 0.2s ease-in-out;
 }
-
+.bestSold:hover {
+  transform: translateY(-5px);
+}
+.bestSold p {
+  color: #001f54;
+  font-size: 20px;
+}
 .bestSold img {
   width: 100%;
   height: auto;
@@ -131,6 +158,13 @@ footer {
   color: white;
   padding: 1rem;
   margin-top: 2rem;
+}
+.insta {
+  text-decoration: none;
+  transition: transform 0.2s ease-in-out;
+}
+.insta:hover {
+  transform: translateY(-5px);
 }
 
 @media (max-width: 768px) {
