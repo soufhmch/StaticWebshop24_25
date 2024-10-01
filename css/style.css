@@ -8,7 +8,7 @@
 body {
   font-family: "Chakra Petch", sans-serif;
   line-height: 1.6;
-  background-color: #eeeeee;
+  background-color: #efeded;
 }
 a {
   text-decoration: none;
@@ -167,6 +167,268 @@ footer {
   transform: translateY(-5px);
 }
 
+/*    PRODUCTPAGE   */
+
+.productContainer {
+  display: flex;
+  flex-wrap: wrap; /* Wrap the items */
+  justify-content: space-between; /* Align items with space between */
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto; /* Center the flex container */
+}
+
+.productContainer article {
+  flex: 1 1 calc(33.33% - 20px); /* Take up 33% of width minus the gap */
+  margin: 0 20px 20px 0;
+  background-color: #f4f4f4;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: #586a6a 0px 4px 7px 4px;
+  text-align: center;
+}
+
+.productContainer img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.productContainer p.itemtitle {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 1rem 0 0.5rem;
+  text-decoration: none;
+  color: #2f4f4f;
+}
+
+.productContainer p.price {
+  font-size: 1.1rem;
+  margin: 1.5rem 0 1.5rem;
+  color: #333;
+}
+
+.button {
+  padding: 0.6em 2em;
+  border: none;
+  outline: none;
+  color: rgb(255, 255, 255);
+  background: #111;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+  user-select: none;
+  touch-action: manipulation;
+  margin: 0.5rem 0;
+  width: 100%;
+  text-align: center;
+}
+
+.button:before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #4aad52,
+    #c2efeb,
+    #001f54,
+    #48ff00,
+    #2f4f4f,
+    #008cde
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing_button 20s linear infinite;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+.button:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #222;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+
+/*      individual product page     */
+.specifiekeProducten {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.productTitle {
+  font-family: "Chakra Petch", sans-serif;
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #2f4f4f;
+}
+
+.specifiekeProductenContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.specifiekeProducten img {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  border-radius: 8px;
+  margin-right: 2rem;
+}
+
+.specifiekeProductenContent article:nth-of-type(2) {
+  flex: 2;
+}
+.priceTag {
+  font-size: 4.5rem;
+  font-weight: bold;
+  margin-top: 1.5rem;
+  color: #333;
+  background-color: #f4f4f4;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.specifiekeProducten p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+.specifiekeProducten ul {
+  list-style-type: square;
+  padding-left: 3.5rem;
+}
+
+.specifiekeProducten ul li {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+/*    Contact  Page     */
+.contact-container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #f4f4f4;
+  border-radius: 10px;
+  box-shadow: #586a6a 0px 4px 7px 4px;
+}
+.contact-details,
+.business-hours,
+.contact-form,
+.location-map {
+  margin-bottom: 2rem;
+}
+.contact-details p,
+.business-hours ul li {
+  font-size: 1.1rem;
+}
+
+.business-hours ul {
+  list-style: none;
+  padding: 0;
+}
+
+.business-hours ul li {
+  margin-bottom: 0.5rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+label {
+  font-weight: 600;
+  color: #2f4f4f;
+}
+
+input,
+textarea {
+  padding: 0.8rem;
+  border: 2px solid #3fa1ec;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: #4aad52;
+}
+.contactButton {
+  padding: 0.6em 2em;
+  border: none;
+  outline: none;
+  color: rgb(255, 255, 255);
+  background: #111;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+  user-select: none;
+  touch-action: manipulation;
+  margin-left: 30%;
+  width: 40%;
+  text-align: center;
+}
+
+.contactButton:before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #4aad52,
+    #c2efeb,
+    #001f54,
+    #48ff00,
+    #2f4f4f,
+    #008cde
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing_button 20s linear infinite;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+.contactButton:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #222;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+
 @media (max-width: 768px) {
   main {
     grid-template-columns: 1fr;
@@ -206,5 +468,16 @@ footer {
   }
   100% {
     color: #4aad52; /* Return to the first color */
+  }
+}
+@keyframes glowing_button {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
   }
 }
