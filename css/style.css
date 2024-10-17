@@ -292,6 +292,7 @@ footer {
   height: auto;
   border-radius: 8px;
   margin-right: 2rem;
+  box-shadow: #586a6a 0px 4px 7px 4px;
 }
 
 .specifiekeProductenContent article:nth-of-type(2) {
@@ -462,6 +463,14 @@ textarea:focus {
     display: flex;
     flex-direction: column;
     margin-top: 3rem;
+  }
+  .specifiekeProductenContent {
+    display: flex;
+    flex-direction: column;
+  }
+  .productFoto {
+    flex-direction: row;
+    width: 100%;
   }
 }
 
