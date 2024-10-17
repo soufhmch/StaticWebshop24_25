@@ -473,6 +473,9 @@ textarea:focus {
     width: 100%;
     margin-bottom: 3rem;
   }
+  .specifiekeProductenContent ul {
+    margin-top: 3rem;
+  }
 }
 
 @keyframes colorChange {
