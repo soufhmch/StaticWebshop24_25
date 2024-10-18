@@ -454,6 +454,7 @@ textarea:focus {
   .title {
     margin: 0 auto;
     text-align: center;
+    width: 100%;
   }
   .souf {
     margin: 0 auto;
@@ -475,6 +476,62 @@ textarea:focus {
   }
   .specifiekeProductenContent ul {
     margin-top: 3rem;
+  }
+  .contact-container {
+    width: 97%;
+  }
+}
+@media screen and (min-width: 769px) and (max-width: 1000px) {
+  header {
+    display: flex;
+  }
+  nav {
+    flex-direction: column;
+    width: 100%;
+  }
+  .intro {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+  }
+  .intro p.right {
+    font-size: 25px;
+    text-align: left;
+  }
+  .intro p.left {
+    font-size: 25px;
+    text-align: left;
+  }
+  .title {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .souf {
+    margin: 0 auto;
+    border-radius: 15px;
+  }
+  .highlighted {
+    display: flex;
+    flex-direction: column;
+    margin-top: 3rem;
+  }
+  .specifiekeProductenContent {
+    display: flex;
+    flex-direction: column;
+  }
+  .productFoto {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    width: 100%;
+    margin-bottom: 3rem;
+  }
+  .specifiekeProductenContent ul {
+    margin-top: 3rem;
+  }
+  .contact-container {
+    width: 97%;
   }
 }
 
