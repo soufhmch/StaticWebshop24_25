@@ -480,6 +480,15 @@ textarea:focus {
   .contact-container {
     width: 97%;
   }
+  .productButtons {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    flex-direction: column;
+  }
+  .productButtons button {
+    width: 15rem;
+  }
 }
 @media screen and (min-width: 769px) and (max-width: 1000px) {
   header {
@@ -532,6 +541,15 @@ textarea:focus {
   }
   .contact-container {
     width: 97%;
+  }
+  .productButtons {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    flex-direction: column;
+  }
+  .productButtons button {
+    width: 25rem;
   }
 }
 
