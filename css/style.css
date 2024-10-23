@@ -325,6 +325,7 @@ footer {
 }
 
 /*    Contact  Page     */
+
 .contact-container {
   max-width: 1200px;
   margin: 2rem auto;
@@ -338,6 +339,10 @@ footer {
 .contact-form,
 .location-map {
   margin-bottom: 2rem;
+}
+.contact-form h2 {
+  font-size: 25px;
+  margin-top: 2rem;
 }
 .contact-details p,
 .business-hours ul li {
@@ -428,6 +433,11 @@ textarea:focus {
   left: 0;
   top: 0;
   border-radius: 10px;
+}
+#map {
+  height: 350px;
+  border-radius: 10px;
+  box-shadow: #586a6a 0px 4px 7px 4px;
 }
 
 @media screen and (max-width: 768px) {
