@@ -1,96 +1,93 @@
 <!DOCTYPE html>
 <html lang="nl">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/reset.css" />
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <script src="../js/script.js" defer></script>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,500;0,600;1,500;1,600&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="icon" href="assets/RodeLogo.png" type="image/x-icon" />
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-      crossorigin=""
-    />
-    <script
-      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-      crossorigin=""
-    ></script>
 
-    <title>Contact - SH Tuning</title>
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="css/reset.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <script src="../js/script.js" defer></script>
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,500;0,600;1,500;1,600&display=swap"
+    rel="stylesheet" />
+  <link rel="icon" href="assets/RodeLogo.png" type="image/x-icon" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 
-  <body>
-    <header>
-      <nav>
-        <img class="logo" src="assets/SH Tuning.png" alt="SH Tuning Logo" />
-        <li><a href="index.html">Home</a></li>
-        <li><a href="productPage.html">Producten</a></li>
-        <li><a href=".contact.html">Contact</a></li>
-        <li><a href=".clients.html">Klanten</a></li>
-      </nav>
-    </header>
+  <title>Contact - SH Tuning</title>
+</head>
 
-    <main class="contact-container">
-      <h1>Contact</h1>
+<body>
+  <header>
+    <nav>
+      <img class="logo" src="assets/SH Tuning.png" alt="SH Tuning Logo" />
+      <li><a href="index.html">Home</a></li>
+      <li><a href="productPage.html">Producten</a></li>
+      <li><a href=".contact.html">Contact</a></li>
+      <li><a href=".clients.html">Klanten</a></li>
+    </nav>
+  </header>
 
-      <section class="contact-details">
-        <h2>Onze Contactgegevens</h2>
-        <p><strong>Email:</strong> info@shtuning.com</p>
-        <p><strong>Telefoon:</strong> +31 20 123 4567</p>
-        <p>
-          <strong>Adres:</strong> SH Tuning, Heistraat 151, 9100 Sint-Niklaas
-        </p>
-      </section>
+  <main class="contact-container">
+    <h1>Contact</h1>
 
-      <section class="business-hours">
-        <h2>Openingstijden</h2>
-        <ul>
-          <li>Maandag tot Vrijdag: 9:00 - 18:00</li>
-          <li>Zaterdag: 10:00 - 16:00</li>
-          <li>Zondag: Gesloten</li>
-        </ul>
-      </section>
-
-      <section class="location-map">
-        <h2>Vind Ons Hier</h2>
-        <p>Heistraat 151</p>
-        <p>9100 Sint-Niklaas</p>
-      </section>
-      <aside>
-        <div id="map"></div>
-      </aside>
-
-      <section class="contact-form">
-        <h2>Neem Contact op</h2>
-        <form action="/submit-form" method="POST">
-          <label for="name">Naam</label>
-          <input type="text" id="name" name="name" required />
-
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" required />
-
-          <label for="message">Bericht</label>
-          <textarea id="message" name="message" rows="5" required></textarea>
-
-          <button type="submit" class="contactButton">Bericht Versturen</button>
-        </form>
-      </section>
-    </main>
-
-    <footer>
-      <p>&copy; 2024 SH Tuning. Alle rechten voorbehouden.</p>
-      <p class="insta">
-        <a href="https://www.instagram.com/soufhmmch/">@soufhmmch</a>
+    <section class="contact-details">
+      <h2>Onze Contactgegevens</h2>
+      <p><strong>Email:</strong> info@shtuning.com</p>
+      <p><strong>Telefoon:</strong> +31 20 123 4567</p>
+      <p>
+        <strong>Adres:</strong> SH Tuning, Heistraat 151, 9100 Sint-Niklaas
       </p>
-    </footer>
-  </body>
+    </section>
+
+    <section class="business-hours">
+      <h2>Openingstijden</h2>
+      <ul>
+        <li>Maandag tot Vrijdag: 9:00 - 18:00</li>
+        <li>Zaterdag: 10:00 - 16:00</li>
+        <li>Zondag: Gesloten</li>
+      </ul>
+    </section>
+
+    <section class="location-map">
+      <h2>Vind ons bureau hier</h2>
+      <p>Heistraat 151</p>
+      <p>9100 Sint-Niklaas</p>
+      <br>
+      <h2>Vind ons magazijn hier</h2>
+      <p>Ellermanstraat 33</p>
+      <p>2060 Antwerpen</p>
+    </section>
+    <aside>
+      <div id="map"></div>
+    </aside>
+
+    <section class="contact-form">
+      <h2>Neem Contact op</h2>
+      <form action="/submit-form" method="POST">
+        <label for="name">Naam</label>
+        <input type="text" id="name" name="name" required />
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="message">Bericht</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+
+        <button type="submit" class="contactButton">Bericht Versturen</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 SH Tuning. Alle rechten voorbehouden.</p>
+    <p class="insta">
+      <a href="https://www.instagram.com/soufhmmch/">@soufhmmch</a>
+    </p>
+  </footer>
+</body>
+
 </html>

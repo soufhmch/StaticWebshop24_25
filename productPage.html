@@ -1,33 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/reset.css" />
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,500;0,600;1,500;1,600&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="icon" href="assets/RodeLogo.png" type="image/x-icon" />
-    <script src="js/script.js"></script>
-    <title>SH Tuning - SH Tuning</title>
-  </head>
-  <body>
-    <header>
-      <nav>
-        <img class="logo" src="assets/SH Tuning.png" alt="logo" />
-        <li><a href="index.html">Home</a></li>
-        <li><a href="productPage.html">Products</a></li>
-        <li><a href="contact.html">Contact us</a></li>
-        <li><a href="clients.html">Clients</a></li>
-      </nav>
-    </header>
-    <main>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="css/reset.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,500;0,600;1,500;1,600&display=swap"
+    rel="stylesheet" />
+  <link rel="icon" href="assets/RodeLogo.png" type="image/x-icon" />
+  <script src="js/script.js"></script>
+  <title>SH Tuning - SH Tuning</title>
+</head>
+
+<body>
+  <header>
+    <nav>
+      <img class="logo" src="assets/SH Tuning.png" alt="logo" />
+      <li><a href="index.html">Home</a></li>
+      <li><a href="productPage.html">Products</a></li>
+      <li><a href="contact.html">Contact us</a></li>
+      <li><a href="clients.html">Clients</a></li>
+    </nav>
+  </header>
+  <main>
+    <section class="productPageLayout">
+      <aside class="filterContainer">
+        <h2 class="filterTitle">Filter</h2>
+
+        <!-- Vermogen Filter -->
+        <section class="filterCategory">
+          <label><input type="checkbox" id="vermogenFilter" name="filter" value="vermogen"> Vermogen</label>
+        </section>
+
+        <!-- Carrosserie Filter -->
+        <section class="filterCategory">
+          <label><input type="checkbox" id="carrosserieFilter" name="filter" value="carrosserie"> Carrosserie</label>
+        </section>
+
+        <!-- ECU Tunes Filter -->
+        <section class="filterCategory">
+          <label><input type="checkbox" id="ecuFilter" name="filter" value="ecu"> ECU Tunes</label>
+        </section>
+
+        <!-- Prijsklasse Slider -->
+        <article class="filterCategory">
+          <h3>Prijsklasse</h3>
+          <label for="priceRange"></label>
+          <input type="range" id="priceRange" name="priceRange" min="0" max="7000" step="50" value="3500"
+            oninput="document.getElementById('priceValue').textContent = this.value">
+          <p>Max Prijs: $<span id="priceValue">7000</span></p>
+        </article>
+
+        <!-- Filter Knop -->
+        <section class="applyFilterButton">
+          <button class="filterButton" type="button" onclick="applyFilter()">Filter Toepassen</button>
+        </section>
+      </aside>
+
       <section class="productContainer">
-        <article>
+        <article class="product vermogen">
           <a href="brembo.html">
             <img src="assets/Brakes/1738188_x800.webp" alt="airlift" />
             <p class="itemtitle">Brembo big brake kit</p>
@@ -38,7 +72,7 @@
           </button>
           <button class="button" role="button">Voeg toe aan winkelmand</button>
         </article>
-        <article>
+        <article class="product vermogen">
           <a href="airlift.html">
             <img src="assets/CatchCan/223194_x800.webp" alt="airlift" />
             <p class="itemtitle">Carbon oil catch can</p>
@@ -49,7 +83,7 @@
           </button>
           <button class="button" role="button">Voeg toe aan winkelmand</button>
         </article>
-        <article>
+        <article class="product ecu">
           <a href="airlift.html">
             <img src="assets/ECU/1822661_x800.webp" alt="airlift" />
             <p class="itemtitle">Dinan ECU tune</p>
@@ -60,7 +94,7 @@
           </button>
           <button class="button" role="button">Voeg toe aan winkelmand</button>
         </article>
-        <article>
+        <article class="product vermogen">
           <a href="airlift.html">
             <img src="assets/Eventuri/1857511_x800.webp" alt="airlift" />
             <p class="itemtitle">Eventuri carbon cold air intake</p>
@@ -71,7 +105,7 @@
           </button>
           <button class="button" role="button">Voeg toe aan winkelmand</button>
         </article>
-        <article>
+        <article class="product vermogen">
           <a href="airlift.html">
             <img src="assets/Exhaust/1242466_x800.webp" alt="airlift" />
             <p class="itemtitle">Akropivic straight pipe</p>
@@ -82,12 +116,9 @@
           </button>
           <button class="button" role="button">Voeg toe aan winkelmand</button>
         </article>
-        <article>
+        <article class="product carrosserie">
           <a href="airlift.html">
-            <img
-              src="assets/Hood/Screenshot 2024-09-18 165329.png"
-              alt="airlift"
-            />
+            <img src="assets/Hood/Screenshot 2024-09-18 165329.png" alt="airlift" />
             <p class="itemtitle">Forged carbon hood</p>
             <p class="price">$2800</p>
           </a>
@@ -96,7 +127,7 @@
           </button>
           <button class="button" role="button">Voeg toe aan winkelmand</button>
         </article>
-        <article>
+        <article class="product carrosserie">
           <a href="airlift.html">
             <img src="assets/Lip/1544656_x800.webp" alt="airlift" />
             <p class="itemtitle">Carbon front lip</p>
@@ -107,7 +138,7 @@
           </button>
           <button class="button" role="button">Voeg toe aan winkelmand</button>
         </article>
-        <article>
+        <article class="product vermogen">
           <a href="airlift.html">
             <img src="assets/MethInjection/1597704_x800.webp" alt="airlift" />
             <p class="itemtitle">Stage 2+ meth injection kit</p>
@@ -118,7 +149,7 @@
           </button>
           <button class="button" role="button">Voeg toe aan winkelmand</button>
         </article>
-        <article>
+        <article class="product vermogen">
           <a href="airlift.html">
             <img src="assets/Nitro/1548734_x800.webp" alt="airlift" />
             <p class="itemtitle">Nitrous express</p>
@@ -129,7 +160,7 @@
           </button>
           <button class="button" role="button">Voeg toe aan winkelmand</button>
         </article>
-        <article>
+        <article class="product carrosserie">
           <a href="airlift.html">
             <img src="assets/Rims/1101228_x800.webp" alt="airlift" />
             <p class="itemtitle">Rohana rims</p>
@@ -140,7 +171,7 @@
           </button>
           <button class="button" role="button">Voeg toe aan winkelmand</button>
         </article>
-        <article>
+        <article class="product vermogen">
           <a href="airlift.html">
             <img src="assets/turbo/1809562_x800.webp" alt="airlift" />
             <p class="itemtitle">Pure turbo kit</p>
@@ -151,7 +182,7 @@
           </button>
           <button class="button" role="button">Voeg toe aan winkelmand</button>
         </article>
-        <article>
+        <article class="product vermogen">
           <a href="airlift.html">
             <img src="assets/AirLift/733763_x800.webp" alt="airlift" />
             <p class="itemtitle">Airlift performance</p>
@@ -163,12 +194,14 @@
           <button class="button" role="button">Voeg toe aan winkelmand</button>
         </article>
       </section>
-    </main>
-    <footer>
-      <p>&copy; 2024 SH Tuning. Alle rechten voorbehouden.</p>
-      <p class="insta">
-        <a href="https://www.instagram.com/soufhmmch/">@soufhmmch</a>
-      </p>
-    </footer>
-  </body>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2024 SH Tuning. Alle rechten voorbehouden.</p>
+    <p class="insta">
+      <a href="https://www.instagram.com/soufhmmch/">@soufhmmch</a>
+    </p>
+  </footer>
+</body>
+
 </html>
