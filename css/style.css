@@ -169,13 +169,120 @@ footer {
 
 /*    PRODUCTPAGE   */
 
+/* Layout for Filter and Product Section */
+.productContainer,
+.filterContainer {
+  flex: 1;
+  padding: 2rem;
+  margin: 0 3rem;
+}
+
+/* Position Filter Container beside Product Section */
+.productPageLayout {
+  display: flex;
+
+}
+
+/* Filter Section Styling */
+.filterContainer {
+  max-width: 250px;
+  max-height: 450px;
+  background-color: #f4f4f4;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: #586a6a 0px 4px 7px 4px;
+  text-align: center;
+}
+
+.filterTitle {
+  font-size: 1.5rem;
+  color: #2f4f4f;
+  margin-bottom: 1rem;
+}
+
+.filterOption {
+  display: flex;
+  align-items: center;
+  margin: 0.8rem 0;
+}
+
+.filterOption label {
+  margin-left: 0.5rem;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.applyFilterButton {
+  padding: 0.6em 1.5em;
+  border: none;
+  color: #fff;
+  background: #111;
+  cursor: pointer;
+  border-radius: 10px;
+  width: 100%;
+  text-align: center;
+  margin-top: 1.5rem;
+  position: relative;
+  z-index: 0;
+}
+
+.applyFilterButton:before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #4aad52,
+    #c2efeb,
+    #001f54,
+    #48ff00,
+    #2f4f4f,
+    #008cde
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing_button 20s linear infinite;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+.applyFilterButton:after {
+  content: "";
+  background: #222;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  z-index: -1;
+}
+/* Checkbox styling */
+.filterCategory input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: #586a6a; /* Pas de kleur van de checkbox aan */
+  cursor: pointer;
+}
+
+.filterCategory label {
+  font-size: 1.1rem;
+  color: #2f4f4f;
+  margin-left: 0.5rem; /* Spacing tussen checkbox en label */
+}
+
+
 .productContainer {
   display: flex;
   flex-wrap: wrap; /* Wrap the items */
   justify-content: space-between; /* Align items with space between */
   padding: 2rem;
   max-width: 1200px;
-  margin: 0 auto; /* Center the flex container */
+
 }
 
 .productContainer article {
