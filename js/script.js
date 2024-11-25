@@ -5,10 +5,10 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 }).addTo(map);
 
 var Icon = L.icon({
-    iconUrl: 'assets/RodeLogo.png',
+    iconUrl: '../assets/RodeLogo.png',
 
 
-    iconSize: [50, 50], // size of the icon
+    iconSize: [35, 35], // size of the icon
     iconAnchor: [22, 94], // point of the icon which will correspond to marker's location
 });
 
