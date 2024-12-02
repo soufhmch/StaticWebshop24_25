@@ -30,6 +30,9 @@ header nav {
 nav ul {
   list-style-type: none;
   display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
 }
 
 nav li {
@@ -180,7 +183,6 @@ footer {
 /* Position Filter Container beside Product Section */
 .productPageLayout {
   display: flex;
-
 }
 
 /* Filter Section Styling */
@@ -275,14 +277,12 @@ footer {
   margin-left: 0.5rem; /* Spacing tussen checkbox en label */
 }
 
-
 .productContainer {
   display: flex;
   flex-wrap: wrap; /* Wrap the items */
   justify-content: space-between; /* Align items with space between */
   padding: 2rem;
   max-width: 1200px;
-
 }
 
 .productContainer article {
