@@ -8,7 +8,7 @@
 body {
   font-family: "Chakra Petch", sans-serif;
   line-height: 1.6;
-  background-color: #efeded;
+  background-color: #cfd8dc;
 }
 a {
   text-decoration: none;
@@ -28,6 +28,9 @@ header nav {
 nav ul {
   list-style-type: none;
   display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
 }
 
 nav li {
@@ -128,7 +131,7 @@ main {
 .bestSold {
   flex-basis: 30%;
   text-align: center;
-  border: #3fa1ec solid 4px;
+  border: #586a6a solid 4px;
   border-radius: 0 15px 0 15px;
   box-shadow: #586a6a 0px 4px 7px 4px;
   margin: 10px;
@@ -178,7 +181,6 @@ footer {
 /* Position Filter Container beside Product Section */
 .productPageLayout {
   display: flex;
-
 }
 
 /* Filter Section Styling */
@@ -273,14 +275,12 @@ footer {
   margin-left: 0.5rem; /* Spacing tussen checkbox en label */
 }
 
-
 .productContainer {
   display: flex;
   flex-wrap: wrap; /* Wrap the items */
   justify-content: space-between; /* Align items with space between */
   padding: 2rem;
   max-width: 1200px;
-
 }
 
 .productContainer article {
@@ -477,7 +477,7 @@ label {
 input,
 textarea {
   padding: 0.8rem;
-  border: 2px solid #3fa1ec;
+  border: 2px solid #586a6a;
   border-radius: 5px;
   font-size: 1rem;
 }

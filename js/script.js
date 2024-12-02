@@ -5,8 +5,10 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 }).addTo(map);
 
 var Icon = L.icon({
-    iconUrl: 'assets/RodeLogo.png',
-    iconSize: [50, 50], // size of the icon
+    iconUrl: '../assets/RodeLogo.png',
+
+
+    iconSize: [35, 35], // size of the icon
     iconAnchor: [22, 94], // point of the icon which will correspond to marker's location
 });
 
@@ -20,27 +22,27 @@ function applyFilter() {
     const carrosserieFilter = document.getElementById("carrosserieFilter").checked;
     const ecuFilter = document.getElementById("ecuFilter").checked;
     const maxPrice = parseInt(document.getElementById("priceRange").value, 10);
-  
+
     // Haal alle producten op
     const products = document.querySelectorAll(".productContainer .product");
-  
+
     // Filter elk product
     products.forEach((product) => {
-      const productPrice = parseInt(product.querySelector(".price").textContent.replace('$', ''), 10);
-      const matchesPrice = productPrice <= maxPrice;
-  
-      // Controleer categorieën
-      const matchesVermogen = vermogenFilter && product.classList.contains("vermogen");
-      const matchesCarrosserie = carrosserieFilter && product.classList.contains("carrosserie");
-      const matchesEcu = ecuFilter && product.classList.contains("ecu");
-  
-      // Product tonen of verbergen
-      if ((matchesVermogen || matchesCarrosserie || matchesEcu || (!vermogenFilter && !carrosserieFilter && !ecuFilter)) && matchesPrice) {
-        product.style.display = "block";
-      } else {
-        product.style.display = "none";
-      }
+        const productPrice = parseInt(product.querySelector(".price").textContent.replace('$', ''), 10);
+        const matchesPrice = productPrice <= maxPrice;
+
+        // Controleer categorieën
+        const matchesVermogen = vermogenFilter && product.classList.contains("vermogen");
+        const matchesCarrosserie = carrosserieFilter && product.classList.contains("carrosserie");
+        const matchesEcu = ecuFilter && product.classList.contains("ecu");
+
+        // Product tonen of verbergen
+        if ((matchesVermogen || matchesCarrosserie || matchesEcu || (!vermogenFilter && !carrosserieFilter && !ecuFilter)) && matchesPrice) {
+            product.style.display = "block";
+        } else {
+            product.style.display = "none";
+        }
     });
-  }
-  
+}
+
 
