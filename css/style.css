@@ -621,10 +621,8 @@ textarea:focus {
 }
 
 @media screen and (max-width: 768px) {
-  header {
+  nav ul{
     display: flex;
-  }
-  nav {
     flex-direction: column;
     width: 100%;
   }
@@ -681,12 +679,11 @@ textarea:focus {
   }
 }
 @media screen and (min-width: 769px) and (max-width: 1000px) {
-  header {
+  
+  nav ul{
     display: flex;
-  }
-  nav {
     flex-direction: column;
-    width: 100%;
+
   }
   .intro {
     display: flex;
