@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 document.getElementsByClassName("wishlistButton").style.backgroundColor = "green";
             } else {
                 this.textContent = 'Verwijderd van verlanglijst';
-                setTimeout(()=>{
+                setTimeout(() => {
                     this.textContent = 'Voeg toe aan verlanlijst'
                 }, 1000)
             }
@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', function () {
             `;
             cartItemsContainer.appendChild(cartItem);
 
-            cartItem.querySelector('.removeItemButton').addEventListener('click', function() {
+            cartItem.querySelector('.removeItemButton').addEventListener('click', function () {
                 cartItem.remove();
                 updateCartTotal();
             });
