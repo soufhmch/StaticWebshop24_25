@@ -220,7 +220,7 @@ footer {
   color: #333;
 }
 
-button {
+.button {
   padding: 0.6em 2em;
   border: none;
   outline: none;
@@ -231,13 +231,13 @@ button {
   z-index: 0;
   border-radius: 10px;
   user-select: none;
-
+  touch-action: manipulation;
   margin: 0.5rem 0;
   width: 100%;
   text-align: center;
 }
 
-button:before {
+.button:before {
   content: "";
   background: linear-gradient(
     45deg,
@@ -261,7 +261,7 @@ button:before {
   border-radius: 10px;
 }
 
-button:after {
+.button:after {
   z-index: -1;
   content: "";
   position: absolute;
@@ -335,7 +335,7 @@ button:after {
   cursor: pointer;
   border-radius: 5px;
   font-size: 14px;
-  width: 30px;
+  transition: background-color 0.3s ease;
 }
 
 .removeItemButton:hover {
@@ -712,15 +712,5 @@ textarea:focus {
   }
   100% {
     background-position: 0 0;
-  }
-}
-@keyframes green {
-  100% {
-    color: greenyellow;
-  }
-}
-@keyframes red {
-  100% {
-    color: red;
   }
 }
