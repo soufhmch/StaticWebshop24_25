@@ -151,3 +151,12 @@ const CustomerDisplay = {
     return word.charAt(0).toUpperCase() + word.slice(1);
   },
 };
+document.querySelector('.search-input').addEventListener('focus', () => {
+  document.querySelector('.search-container').style.transition = "all 0.4s ease";
+  document.querySelector('.search-container').style.boxShadow = "0 8px 20px rgba(0, 0, 0, 0.2)";
+});
+
+document.querySelector('.search-input').addEventListener('blur', () => {
+  document.querySelector('.search-container').style.boxShadow = "none";
+});
+
