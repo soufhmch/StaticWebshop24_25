@@ -557,6 +557,12 @@ footer {
   margin-bottom: 0.5rem;
 }
 
+.commentSection {
+  max-width: 90vw;
+  display: flex;
+  flex-direction: row;
+}
+
 /*    Contact  Page     */
 
 .contact-container {
