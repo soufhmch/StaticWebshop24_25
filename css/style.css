@@ -760,6 +760,10 @@ main.CustomersMain {
     display: flex;
     flex-direction: column;
   }
+  specifiekeProducten {
+    max-width: fit-content;
+    margin: 0 auto;
+  }
   .productFoto {
     flex-direction: row;
     width: 100%;
@@ -786,7 +790,7 @@ main.CustomersMain {
   }
   .cartFooter {
     position: absolute;
-    top: 47rem;
+    top: 45rem;
     left: 40%;
   }
   .contact-container {
@@ -873,7 +877,7 @@ main.CustomersMain {
   .cartFooter {
     position: absolute;
     top: 47rem;
-    left: 45%;
+    left: 38%;
   }
   .contact-container {
     width: 97%;
@@ -888,7 +892,7 @@ main.CustomersMain {
     width: 25rem;
   }
 }
-@media screen and (max-width: 1190px) {
+@media screen and (min-widht: 1000px) and (max-width: 1190px) {
   header nav {
     flex-wrap: wrap;
     flex-direction: column;
