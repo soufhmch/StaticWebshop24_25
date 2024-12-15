@@ -1,20 +1,27 @@
 document.addEventListener('DOMContentLoaded', () => {
-    CartManager.init();
-    WishlistManager.init();
-    CustomerDisplay.init();
+    ModuleManager.init();
 });
+
+const ModuleManager = {
+    init() {
+        CartManager.init();
+        WishlistManager.init();
+        CustomerDisplay.init();
+        SearchBoxEffect.init();
+    }
+};
 
 // Cart Module
 const CartManager = {
-    cartList: document.getElementById('cart-items'), // Updated to match HTML ID
+    cartList: document.getElementById('cart-items'),
     totalPrice: document.getElementById('cart-total'),
 
     init() {
-        console.log(this.cartList);  // Debugging the cartList selection
-        if (!this.cartList) {
-            console.error('Cart list not found!');
+        if (!this.cartList || !this.totalPrice) {
+            console.error('Cart list or total price element not found!');
             return;
         }
+
         document.addEventListener('click', (event) => {
             if (event.target.classList.contains('cartButton')) {
                 const productElement = event.target.parentElement;
@@ -25,138 +32,146 @@ const CartManager = {
 
     handleAddToCart(productElement) {
         const itemName = productElement.querySelector('.itemtitle').textContent;
-        const itemPrice = parseFloat(
-            productElement.querySelector('.price').textContent.slice(1)
-        );
-        this.addToCart(itemName, itemPrice);
-    },
+        const itemPrice = parseFloat(productElement.querySelector('.price').textContent.slice(1));
+        const existingCartItem = this.findCartItem(itemName);
 
-    addToCart(itemName, itemPrice) {
-        const existingCartItem = Array.from(this.cartList.children).find((item) =>
-            item.textContent.includes(itemName)
-        );
-
-        if (existingCartItem) {
-            this.updateExistingItem(existingCartItem, itemName, itemPrice);
-        } else {
-            this.createNewCartItem(itemName, itemPrice);
-        }
-
+        existingCartItem ? this.updateExistingItem(existingCartItem, itemPrice) : this.createNewCartItem(itemName, itemPrice);
         this.updateTotalPrice(itemPrice);
     },
 
-    updateExistingItem(item, itemName, itemPrice) {
+    findCartItem(itemName) {
+        return Array.from(this.cartList.children).find((item) => item.textContent.includes(itemName));
+    },
+
+    updateExistingItem(item, itemPrice) {
         const quantity = parseInt(item.dataset.quantity) + 1;
         item.dataset.quantity = quantity;
-        item.querySelector('.cart-item-info').textContent = `${itemName} - €${itemPrice} x${quantity}`;
+        item.querySelector('.cart-item-info').textContent = `${item.dataset.name} - €${itemPrice} x${quantity}`;
     },
 
     createNewCartItem(itemName, itemPrice) {
         const cartItem = document.createElement('div');
         cartItem.classList.add('cart-item');
-        cartItem.dataset.quantity = 1;
+        cartItem.dataset.quantity = 1; // Start met 1 item
+        cartItem.dataset.name = itemName;
         cartItem.innerHTML = `
-      <span class="cart-item-info">${itemName} - €${itemPrice} x1</span>
-      <button class="remove-button">Verwijder</button>
-    `;
-
+            <span class="cart-item-info">${itemName} - €${itemPrice} x1</span>
+            <button class="remove-button">X</button>
+        `;
         this.cartList.appendChild(cartItem);
-        this.setupRemoveButton(cartItem, itemPrice);
-    },
 
-    setupRemoveButton(cartItem, itemPrice) {
         cartItem.querySelector('.remove-button').addEventListener('click', () => {
-            const itemQuantity = parseInt(cartItem.dataset.quantity);
-            this.updateTotalPrice(-itemPrice * itemQuantity);
-            cartItem.remove();
+            const currentQuantity = parseInt(cartItem.dataset.quantity);
+            if (currentQuantity > 1) {
+                // Verminder de hoeveelheid
+                cartItem.dataset.quantity = currentQuantity - 1;
+                cartItem.querySelector('.cart-item-info').textContent = `${itemName} - €${itemPrice} x${cartItem.dataset.quantity}`;
+                this.updateTotalPrice(-itemPrice); // Verminder de totale prijs
+            } else {
+                // Verwijder het item volledig als de hoeveelheid 1 is
+                this.updateTotalPrice(-itemPrice);
+                cartItem.remove();
+
+                if (this.cartList.children.length === 0) {
+                    this.showEmptyCartMessage();
+                }
+            }
         });
     },
 
     updateTotalPrice(amount) {
         const currentTotal = parseFloat(this.totalPrice.textContent.slice(1)) || 0;
-        const newTotal = currentTotal + amount;
-        this.totalPrice.textContent = `€${newTotal.toFixed(2)}`;
+        this.totalPrice.textContent = `€${(currentTotal + amount).toFixed(2)}`;
     },
+
+    showEmptyCartMessage() {
+        const emptyMessage = document.createElement('div');
+        emptyMessage.classList.add('empty-cart-message');
+        emptyMessage.textContent = 'Je winkelwagen is leeg!';
+        this.cartList.appendChild(emptyMessage);
+    }
 };
 
-// Wishlist Module (Unchanged)
+
+// Wishlist Module
 const WishlistManager = {
     init() {
-        const wishlistButtons = document.querySelectorAll('.wishlist');
-        wishlistButtons.forEach((button) => {
-            button.addEventListener('click', () => this.handleWishlistClick(button));
+        document.querySelectorAll('.wishlist').forEach((button) => {
+            button.addEventListener('click', () => this.toggleWishlistState(button));
         });
     },
 
-    handleWishlistClick(button) {
-        if (button.style.backgroundColor === 'green') {
-            this.removeFromWishlist(button);
-        } else {
-            this.addToWishlist(button);
+    toggleWishlistState(button) {
+        button.style.backgroundColor = button.style.backgroundColor === 'green' ? 'red' : 'green';
+        if (button.style.backgroundColor === 'red') {
+            setTimeout(() => {
+                button.style.backgroundColor = 'black';
+                button.style.color = 'white';
+            }, 2000);
         }
-    },
-
-    addToWishlist(button) {
-        button.style.backgroundColor = 'green';
-    },
-
-    removeFromWishlist(button) {
-        button.style.backgroundColor = 'red';
-        setTimeout(() => {
-            button.style.backgroundColor = 'black';
-            button.style.color = 'white';
-        }, 2000);
-    },
+    }
 };
 
-// Customer Display Module (Unchanged)
+// Customer Display Module
 const CustomerDisplay = {
     async init() {
         const customerContainer = document.querySelector('.flex-container');
-        const numberOfCustomers = 8;
+        if (!customerContainer) return;
 
         try {
-            const response = await fetch(`https://randomuser.me/api/?results=${numberOfCustomers}`);
+            const response = await fetch('https://randomuser.me/api/?results=8');
             const data = await response.json();
-            this.displayCustomers(data.results, customerContainer);
+            this.renderCustomers(data.results, customerContainer);
         } catch (error) {
             console.error('Error fetching customer data:', error);
         }
     },
 
-    displayCustomers(customers, container) {
+    renderCustomers(customers, container) {
         customers.forEach((customer) => {
-            const customerElement = this.createCustomerElement(customer);
-            container.appendChild(customerElement);
+            const customerDiv = document.createElement('div');
+            customerDiv.classList.add('customer');
+
+            customerDiv.innerHTML = `
+                <img src="${customer.picture.large}" alt="Customer Image">
+                <p>${this.formatName(customer)} - ${customer.location.country}</p>
+            `;
+
+            container.appendChild(customerDiv);
         });
     },
 
-    createCustomerElement(customer) {
-        const customerDiv = document.createElement('div');
-        customerDiv.classList.add('customer');
-
-        const customerImage = document.createElement('img');
-        customerImage.src = customer.picture.large;
-        customerImage.alt = 'Customer Image';
-
-        const fullName = `${this.capitalize(customer.name.title)} ${customer.name.first} ${customer.name.last}`;
-        const customerInfo = document.createElement('p');
-        customerInfo.textContent = `${fullName} - ${customer.location.country}`;
-
-        customerDiv.append(customerImage, customerInfo);
-        return customerDiv;
+    formatName(customer) {
+        return `${this.capitalize(customer.name.title)} ${customer.name.first} ${customer.name.last}`;
     },
 
     capitalize(word) {
         return word.charAt(0).toUpperCase() + word.slice(1);
-    },
+    }
 };
-document.querySelector('.search-input').addEventListener('focus', () => {
-  document.querySelector('.search-container').style.transition = "all 0.4s ease";
-  document.querySelector('.search-container').style.boxShadow = "0 8px 20px rgba(0, 0, 0, 0.2)";
-});
 
-document.querySelector('.search-input').addEventListener('blur', () => {
-  document.querySelector('.search-container').style.boxShadow = "none";
-});
+// Search Box Effects Module
+const SearchBoxEffect = {
+    init() {
+        const searchInput = document.querySelector('.search-input');
+        const searchContainer = document.querySelector('.search-container');
+        if (!searchInput || !searchContainer) return;
 
+        searchInput.addEventListener('focus', () => {
+            this.applyFocusStyle(searchContainer);
+        });
+
+        searchInput.addEventListener('blur', () => {
+            this.removeFocusStyle(searchContainer);
+        });
+    },
+
+    applyFocusStyle(container) {
+        container.style.transition = 'all 0.4s ease';
+        container.style.boxShadow = '0 8px 20px rgba(0, 0, 0, 0.2)';
+    },
+
+    removeFocusStyle(container) {
+        container.style.boxShadow = 'none';
+    }
+};
